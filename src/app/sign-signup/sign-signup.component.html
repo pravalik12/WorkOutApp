@@ -1,0 +1,44 @@
+<div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="
+                document.getElementById('login-toggle').style.backgroundColor='#57B846'
+                document.getElementById('login-toggle').style.color='#fff';
+                document.getElementById('signup-toggle').style.backgroundColor='#fff';
+                document.getElementById('signup-toggle').style.color='#222';
+                document.getElementById('signup-form').style.display='none';
+                document.getElementById('login-form').style.display='block';">
+            log in
+        </button>
+
+        <button id="signup-toggle" onclick="
+                document.getElementById('login-toggle').style.backgroundColor='#fff'
+                document.getElementById('login-toggle').style.color='#222'
+                document.getElementById('signup-toggle').style.backgroundColor='#57b846';
+                document.getElementById('signup-toggle').style.color='#fff';
+                document.getElementById('login-form').style.display='none';
+                document.getElementById('signup-form').style.display='block' ">
+            sign up
+        </button>
+    </div>
+
+    <div id="login-form">
+        <form>
+            <input type="text" name="username" [(ngModel)]="username" placeholder="Enter email or username"/>
+            <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password"/>
+            <button type="button" class="btn login" (click)="login()">login</button>
+            <p><a href="javascript:void(0)">Forgotten account</a></p>
+        </form>
+    </div>
+
+
+    <div id="signup-form">
+        <form>
+            <input type="email" name="user_mail" [(ngModel)]="user_mail" placeholder="Enter your email"/>
+            <input type="text" name="create_username" [(ngModel)]="create_username" placeholder="Choose username"/>
+            <input type="password" name="create_password" [(ngModel)]="create_password" placeholder="Create password"/>
+            <button type="button" class="btn signup" (click)="signup()">create account</button>
+        </form>
+    </div>
+
+</div>
