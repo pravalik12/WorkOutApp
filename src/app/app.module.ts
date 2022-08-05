@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignSignupComponent } from './sign-signup/sign-signup.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignSignupComponent
+    SignSignupComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
