@@ -24,8 +24,8 @@
 
     <div id="login-form">
         <form>
-            <input type="text" name="username" [(ngModel)]="username" placeholder="Enter email or username"/>
-            <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password"/>
+            <input type="text" name="username" [(ngModel)]="user.username" placeholder="Enter email or username"/>
+            <input type="password" name="password" [(ngModel)]="user.password" placeholder="Enter password"/>
             <button type="button" class="btn login" (click)="login()">login</button>
             <p><a href="javascript:void(0)">Forgotten account</a></p>
         </form>
@@ -33,11 +33,11 @@
 
 
     <div id="signup-form">
-        <form>
-            <input type="email" name="user_mail" [(ngModel)]="user_mail" placeholder="Enter your email"/>
-            <input type="text" name="create_username" [(ngModel)]="create_username" placeholder="Choose username"/>
-            <input type="password" name="create_password" [(ngModel)]="create_password" placeholder="Create password"/>
-            <button type="button" class="btn signup" (click)="signup()">create account</button>
+        <form (ngSubmit)="onSubmit()">
+            <input type="email" name="user_mail" [(ngModel)]="user.emailId" placeholder="Enter your email"/>
+            <input type="text" name="create_username" [(ngModel)]="user.username" placeholder="Choose username"/>
+            <input type="password" name="create_password" [(ngModel)]="user.password" placeholder="Create password"/>
+            <button type="submit" class="btn signup">create account</button>
         </form>
     </div>
 
