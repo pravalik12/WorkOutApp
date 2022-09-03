@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SigninSignupServiceService } from '../signin-signup-service.service';
+import { SigninSignup } from '../SigninSignup';
 @Component({
   selector: 'app-sign-signup',
   templateUrl: './sign-signup.component.html',
@@ -7,24 +9,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SignSignupComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private userService: SigninSignupServiceService,private router: Router) { }
+  user: SigninSignup = new SigninSignup();
 
   ngOnInit(): void {
   }
 
-  username: string = '';
-  password: string = '';
   login(){
-    alert(this.username+ "*************");
+    window.alert(this.user.username);
     this.router.navigate(["/welcome"]);
   }
 
-  create_username: string='';
-  create_password: string='';
-  user_mail: string ='';
-  signup(){
-    alert(this.create_username+"****************");
-    this.router.navigate(["/welcome"]);
+  private signup(){
+    this.userService.createUser(this.user).subscribe((data: any) => {
+      console.log(data);
+     });
+     window.location.reload();
+  }
+
+  onSubmit(): void {
+    console.log(this.user);
+    this.signup();
   }
 
 }
